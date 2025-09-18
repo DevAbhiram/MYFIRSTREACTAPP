@@ -1,21 +1,32 @@
-import React from 'react';
-import Header from './Header';
-import Description from './Description';
-import Dharshans from './Dharshans';
-import Login from './Login';
+import React,{useState} from 'react'
+import ReactDOM from 'react-dom/client'
+import { Routes,Route,Link } from 'react-router-dom'
+import Home from "./Components/Home"
+import About from "./Components/About"
+import Contact from "./Components/Contact"
+import Courses from "./Components/Courses"
 
 function App() {
   return (
-    <div className="app-container">
-      <Header title="Jagannath Temple - Puri" />
-      <Description
-        text="The Jagannath Temple in Puri is one of the Char Dham pilgrimage sites. It is an architectural marvel."
-        image="https://wallpaperaccess.com/full/8888810.jpg"
-      />
-      <Dharshans />
-      <Login />
+    <div>
+      <div className='nav-bar'>
+        <nav>
+          <ul>
+            <li ><Link to="/home"> Home </Link></li>
+            <li><Link to="/contact"> Contact </Link></li>
+            <li><Link to="/courses"> Courses </Link></li>
+            <li><Link to="/about"> About </Link></li>
+          </ul>
+        </nav>
+      </div>
+
+      <Routes>
+        <Route path="/home" element={<Home/>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/courses" element={<Courses/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+      </Routes>
     </div>
   );
 }
-
 export default App;
